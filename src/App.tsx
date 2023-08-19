@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import localforage from 'localforage';
 
 import { Header } from './components/Header';
 import { EditDialog } from './components/EditDialog';
@@ -73,6 +74,17 @@ export const App = () => {
     setCurrentTask(() => initialTask);
     setAlertOpen(false);
   };
+
+  // tasks配列をIndexedDBに保存する
+  useEffect(() => {
+    localforage
+      .getItem('have-passed')
+      .then((values) => setTasks(values as Task[]));
+  }, []);
+
+  useEffect(() => {
+    localforage.setItem('have-passed', tasks);
+  }, [tasks]);
 
   return (
     <>
