@@ -25,6 +25,12 @@ export const App = () => {
       iconColor: '#000',
     };
 
+    if (!tasks) {
+      // localforageの最初の読み込みでtasksがnullになる場合があるのでエラー回避
+      console.log(`tasksが${tasks}なので初期化します`);
+      setTasks([]);
+    }
+
     setTasks((tasks) => [newTask, ...tasks]);
     setCurrentTask(newTask);
     setEditOpen(true);
@@ -79,7 +85,10 @@ export const App = () => {
   useEffect(() => {
     localforage
       .getItem('have-passed')
-      .then((values) => setTasks(values as Task[]));
+      .then((values) => setTasks(values as Task[]))
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   useEffect(() => {

@@ -13,60 +13,62 @@ type Props = {
 export const Card = (props: Props) => {
   return (
     <>
-      {props.tasks.map((task) => (
-        <div
-          key={task.id}
-          className="card"
-          onClick={() =>
-            task.id === props.currentTask.id
-              ? props.setCurrentTask(initialTask)
-              : props.setCurrentTask(task)
-          }
-        >
-          <TaskItem
-            title={task.title}
-            updatedAtUTC={task.updatedAtUTC}
-            iconName={task.iconName}
-            iconColor={task.iconColor}
-          />
+      {/* props.tasks && はlocalforageの最初の読み込みでtasksがnullになる場合があるのでエラー回避 */}
+      {props.tasks &&
+        props.tasks.map((task) => (
+          <div
+            key={task.id}
+            className="card"
+            onClick={() =>
+              task.id === props.currentTask.id
+                ? props.setCurrentTask(initialTask)
+                : props.setCurrentTask(task)
+            }
+          >
+            <TaskItem
+              title={task.title}
+              updatedAtUTC={task.updatedAtUTC}
+              iconName={task.iconName}
+              iconColor={task.iconColor}
+            />
 
-          {task.id === props.currentTask.id ? (
-            <>
+            {task.id === props.currentTask.id ? (
+              <>
+                <button
+                  className="edit"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    props.setEditOpen(true);
+                  }}
+                >
+                  <Icon name="UIedit" color="#666" />
+                </button>
+                <button
+                  className="delete"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    props.setAlertOpen(true);
+                  }}
+                >
+                  <Icon name="UIdelete" color="#666" />
+                </button>
+              </>
+            ) : (
               <button
-                className="edit"
+                className="done"
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  props.setEditOpen(true);
+                  props.done(task.id, Date.now());
                 }}
               >
-                <Icon name="UIedit" color="#666" />
+                <Icon name="UIdone" color="#33a974" />
               </button>
-              <button
-                className="delete"
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  props.setAlertOpen(true);
-                }}
-              >
-                <Icon name="UIdelete" color="#666" />
-              </button>
-            </>
-          ) : (
-            <button
-              className="done"
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                props.done(task.id, Date.now());
-              }}
-            >
-              <Icon name="UIdone" color="#33a974" />
-            </button>
-          )}
-        </div>
-      ))}
+            )}
+          </div>
+        ))}
     </>
   );
 };
