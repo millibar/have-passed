@@ -99,6 +99,9 @@ header button {
   margin: 0 0 0 4px;
   padding: 0;
   line-height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .task input[type='text']::placeholder {
@@ -250,7 +253,7 @@ header button {
 /* Card */
 .card {
   margin: 12px;
-  padding: 10px;
+  padding: 10px 8px;
   border-radius: 8px;
   box-shadow: 0 0 3px #aaa;
   display: grid;
@@ -281,8 +284,20 @@ header button {
   height: 50px;
 }
 
-.card button svg {
+.card button.edit svg,
+.card button.delete svg {
+  margin: 10px 0 0 0;
   padding: 8px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+}
+
+.card button.done svg {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
   filter: drop-shadow(1px 1px 1px #aaa);
 }
 
