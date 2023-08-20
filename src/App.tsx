@@ -90,12 +90,12 @@ export const App = () => {
     ]);
   };
 
-  // AlertDialogで削除するボタンがクリックされたときに呼ばれる
+  // 削除ボタンがクリックされたときに呼ばれる
   // tasks配列からidに一致するtaskを削除する
   const deleteTask = (id: number) => {
     setTasks((tasks) => tasks.filter((task) => task.id != id));
     setCurrentTask(() => initialTask);
-    setAlertOpen(false);
+    setEditOpen(false);
 
     setHistory((history) => [
       structuredClone(tasks),
@@ -137,7 +137,11 @@ export const App = () => {
       />
 
       {editOpen && (
-        <EditDialog currentTask={currentTask} updateTask={updateTask} />
+        <EditDialog
+          currentTask={currentTask}
+          updateTask={updateTask}
+          deleteTask={deleteTask}
+        />
       )}
 
       {alertOpen && (
@@ -154,7 +158,6 @@ export const App = () => {
         done={done}
         setCurrentTask={setCurrentTask}
         setEditOpen={setEditOpen}
-        setAlertOpen={setAlertOpen}
       />
     </>
   );

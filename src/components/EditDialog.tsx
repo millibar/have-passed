@@ -10,6 +10,7 @@ type Props = {
     iconName: string,
     iconColor: string,
   ) => void;
+  deleteTask: (id: number) => void;
 };
 
 type Selected = {
@@ -99,6 +100,16 @@ export const EditDialog = (props: Props) => {
           }}
         >
           ×
+        </button>
+
+        <button
+          type="button"
+          className="delete"
+          onClick={() => {
+            props.deleteTask(props.currentTask.id);
+          }}
+        >
+          <Icon name="UIdelete" color="#666" />
         </button>
 
         <TaskItem

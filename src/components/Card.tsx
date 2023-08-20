@@ -7,7 +7,6 @@ type Props = {
   done: (id: number, updatedAtUTC: number) => void;
   setCurrentTask: (task: Task) => void;
   setEditOpen: (flag: boolean) => void;
-  setAlertOpen: (flag: boolean) => void;
 };
 
 export const Card = (props: Props) => {
@@ -33,28 +32,16 @@ export const Card = (props: Props) => {
             />
 
             {task.id === props.currentTask.id ? (
-              <>
-                <button
-                  className="edit"
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    props.setEditOpen(true);
-                  }}
-                >
-                  <Icon name="UIedit" color="#666" />
-                </button>
-                <button
-                  className="delete"
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    props.setAlertOpen(true);
-                  }}
-                >
-                  <Icon name="UIdelete" color="#666" />
-                </button>
-              </>
+              <button
+                className="edit"
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  props.setEditOpen(true);
+                }}
+              >
+                <Icon name="UIedit" color="#666" />
+              </button>
             ) : (
               <button
                 className="done"
