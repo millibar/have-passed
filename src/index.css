@@ -264,6 +264,7 @@ header button {
   display: grid;
   grid-template-columns: 1fr 40px 44px;
   grid-template-areas: 'task button1 button2';
+  background: #fff;
 }
 
 .card .task {
