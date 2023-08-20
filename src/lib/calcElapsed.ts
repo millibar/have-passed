@@ -25,9 +25,9 @@ export const elapsedString = (fromUTC: number, toUTC: number): string => {
 
   if (diff_s < 60) return 'just now';
 
-  if (diff_s < 120) return '1 minute';
+  if (diff_s < 120) return '1 min';
 
-  if (diff_s < 3600) return `${Math.floor(diff_s / 60)} minutes`;
+  if (diff_s < 3600) return `${Math.floor(diff_s / 60)} min`;
 
   if (diff_s < 3960) return '1 hour'; // 3960 ÷ 3600 = 1.1なので、1.1時間未満は1時間とする
 
