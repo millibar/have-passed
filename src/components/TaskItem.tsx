@@ -46,8 +46,9 @@ export const TaskItem = (props: Props) => {
       <Icon name={props.iconName} color={props.iconColor} />
 
       <p>
-        <strong>{elapsedString(props.updatedAtUTC, Date.now())}</strong> since{' '}
+        <strong>{elapsedString(props.updatedAtUTC, Date.now())}</strong>
         <time>
+          <span>since </span>
           {toLocaleDateOrTimeString(props.updatedAtUTC, Date.now(), [])}
         </time>
       </p>
