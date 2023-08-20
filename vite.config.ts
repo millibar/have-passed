@@ -19,7 +19,7 @@ export default defineConfig({
         start_url: '.',
         display: 'standalone',
         orientation: 'portrait',
-        theme_color: '#fff',
+        theme_color: '#d6eaf3',
         background_color: '#fff',
         icons: [
           {
@@ -31,12 +31,6 @@ export default defineConfig({
             src: 'icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-          },
-          {
-            src: 'icon-512x512-mask.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable',
           },
         ],
       },
