@@ -14,6 +14,8 @@ export const App = () => {
   const [editOpen, setEditOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
 
+  const [history, setHistory] = useState<Task[][]>([]);
+
   // Headerの＋ボタンがクリックされたときに呼ばれる
   // tasks配列に新しいtaskを追加する
   const createTask = () => {
@@ -34,6 +36,11 @@ export const App = () => {
     setTasks((tasks) => [newTask, ...tasks]);
     setCurrentTask(newTask);
     setEditOpen(true);
+
+    setHistory((history) => [
+      structuredClone(tasks),
+      ...structuredClone(history),
+    ]);
   };
 
   // EditDialogを閉じたときに呼ばれる
@@ -56,6 +63,11 @@ export const App = () => {
     });
     setCurrentTask(() => initialTask);
     setEditOpen(false);
+
+    setHistory((history) => [
+      structuredClone(tasks),
+      ...structuredClone(history),
+    ]);
   };
 
   // Cardのチェックボタンがクリックされたときに呼ばれる
@@ -71,6 +83,11 @@ export const App = () => {
 
       return newTasks;
     });
+
+    setHistory((history) => [
+      structuredClone(tasks),
+      ...structuredClone(history),
+    ]);
   };
 
   // AlertDialogで削除するボタンがクリックされたときに呼ばれる
@@ -79,6 +96,22 @@ export const App = () => {
     setTasks((tasks) => tasks.filter((task) => task.id != id));
     setCurrentTask(() => initialTask);
     setAlertOpen(false);
+
+    setHistory((history) => [
+      structuredClone(tasks),
+      ...structuredClone(history),
+    ]);
+  };
+
+  // history配列（tasksの配列）の先頭を取り出し、tasksにセットする
+  const undo = () => {
+    if (history.length < 1) {
+      console.log('これ以上Undoできません');
+      return;
+    }
+    const [prevTasks, ...newHistory] = structuredClone(history);
+    setTasks([...prevTasks]);
+    setHistory(structuredClone(newHistory));
   };
 
   // tasks配列をIndexedDBに保存する
@@ -97,7 +130,11 @@ export const App = () => {
 
   return (
     <>
-      <Header createTask={createTask} />
+      <Header
+        createTask={createTask}
+        undo={undo}
+        historyLength={history.length}
+      />
 
       {editOpen && (
         <EditDialog currentTask={currentTask} updateTask={updateTask} />

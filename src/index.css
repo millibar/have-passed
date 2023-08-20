@@ -76,13 +76,30 @@ header h1 {
   text-align: center;
 }
 
-header button {
+header button.create-task {
   position: absolute;
   width: 44px;
   height: 44px;
   top: 0;
   right: 0;
   font-size: 24px;
+}
+
+header button.undo {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  top: 0;
+  left: 0;
+}
+
+header button.undo:disabled {
+  opacity: 0.3;
+}
+
+header button.undo svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* TaskItem */
