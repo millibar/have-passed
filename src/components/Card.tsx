@@ -64,7 +64,7 @@ export const Card = (props: Props) => {
                   props.done(task.id, Date.now());
                 }}
               >
-                <Icon name="UIdone" color="#33a974" />
+                <Icon name="UIdone" color="#3ad288" />
               </button>
             )}
           </div>

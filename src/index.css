@@ -320,7 +320,7 @@ header button {
 .card button.done svg {
   margin: 2px 4px 0 0;
   padding: 2px;
-  filter: drop-shadow(1px 1px 1px #aaa);
+  filter: drop-shadow(1px 1px 1px #666);
 }
 
 /* AlertDialog */
