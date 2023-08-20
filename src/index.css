@@ -309,7 +309,8 @@ header button {
 
 /* AlertDialog */
 .alert-dialog {
-  width: 300px;
+  box-sizing: border-box;
+  width: 90%;
   padding: 14px;
   top: 50%;
   transform: translateY(-50%);
@@ -329,6 +330,7 @@ header button {
 }
 
 button.destruction {
+  box-sizing: border-box;
   background: #db5540;
   color: #fff;
   border: 1px solid #db5540;
@@ -336,9 +338,11 @@ button.destruction {
   padding: 4px;
   width: 48%;
   float: left;
+  font-size: 94%;
 }
 
 button.cancel {
+  box-sizing: border-box;
   background: #fff;
   color: #327ee1;
   border: 1px solid #327ee1;
@@ -346,4 +350,5 @@ button.cancel {
   padding: 4px;
   width: 48%;
   float: right;
+  font-size: 94%;
 }
