@@ -10,6 +10,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: 'autoUpdate',
       manifest: {
         id: '/have-passed/',
         name: 'have passed',
