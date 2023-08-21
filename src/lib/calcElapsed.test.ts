@@ -14,7 +14,9 @@ test.each`
   ${'1時間5分59秒'}      | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 1, 5, 59).getTime()}   | ${'1 hour'}
   ${'1時間6分'}          | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 1, 6, 0).getTime()}    | ${'1.1 hours'}
   ${'3時間45分'}         | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 3, 45, 0).getTime()}   | ${'3.8 hours'}
-  ${'23時間59分59秒'}    | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 23, 59, 59).getTime()} | ${'24 hours'}
+  ${'10時間'}            | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 10, 0, 0).getTime()}   | ${'10 hours'}
+  ${'13時間45分'}        | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 13, 45, 0).getTime()}  | ${'13 hours'}
+  ${'23時間59分59秒'}    | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 1, 23, 59, 59).getTime()} | ${'23 hours'}
   ${'1日'}               | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 2, 0, 0, 0).getTime()}    | ${'1 day'}
   ${'1日23時間59分59秒'} | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 2, 23, 59, 59).getTime()} | ${'1 day'}
   ${'2日'}               | ${new Date(2023, 8, 1, 0, 0, 0).getTime()} | ${new Date(2023, 8, 3, 0, 0, 0).getTime()}    | ${'2 days'}

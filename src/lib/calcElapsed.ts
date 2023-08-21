@@ -31,8 +31,10 @@ export const elapsedString = (fromUTC: number, toUTC: number): string => {
 
   if (diff_s < 3960) return '1 hour'; // 3960 ÷ 3600 = 1.1なので、1.1時間未満は1時間とする
 
-  if (diff_s < 3600 * 24)
+  if (diff_s < 3600 * 10)
     return `${Math.round((diff_s / 3600) * 10) / 10} hours`;
+
+  if (diff_s < 3600 * 24) return `${Math.floor(diff_s / 3600)} hours`;
 
   if (diff_s < 3600 * 24 * 2) return '1 day';
 
