@@ -41,7 +41,7 @@ html {
   max-width: 800px;
   height: 100%;
   margin: auto;
-  padding: 44px 0 0;
+  padding: 0;
   position: relative;
   background: #fafafa;
 }
@@ -60,7 +60,7 @@ header {
   height: 44px;
   box-shadow: 0 3px 4px #ccc;
   background: #d6eaf3;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
