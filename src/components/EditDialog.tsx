@@ -89,31 +89,6 @@ export const EditDialog = (props: Props) => {
         }
       ></div>
       <div className="edit-dialog">
-        <button
-          className="update"
-          type="button"
-          onClick={() => {
-            props.updateTask(
-              props.currentTask.id,
-              title,
-              selected.iconName,
-              selected.iconColor,
-            );
-          }}
-        >
-          ×
-        </button>
-
-        <button
-          type="button"
-          className="delete"
-          onClick={() => {
-            props.deleteTask(props.currentTask.id);
-          }}
-        >
-          <Icon name="UIdelete" color="#666" />
-        </button>
-
         <TaskItem
           title={title}
           updatedAtUTC={props.currentTask.updatedAtUTC}
@@ -155,6 +130,32 @@ export const EditDialog = (props: Props) => {
             </li>
           ))}
         </ul>
+
+        <button
+          className="update"
+          type="button"
+          disabled={title ? false : true}
+          onClick={() => {
+            props.updateTask(
+              props.currentTask.id,
+              title,
+              selected.iconName,
+              selected.iconColor,
+            );
+          }}
+        >
+          OK
+        </button>
+
+        <button
+          type="button"
+          className="delete"
+          onClick={() => {
+            props.deleteTask(props.currentTask.id);
+          }}
+        >
+          <Icon name="UIdelete" color="#666" />
+        </button>
       </div>
     </>
   );
