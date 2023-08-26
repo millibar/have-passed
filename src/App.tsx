@@ -51,6 +51,9 @@ export const App = () => {
     iconName: string,
     iconColor: string,
   ) => {
+    if (title === '') {
+      return;
+    }
     setTasks((tasks) => {
       const newTasks = tasks.map((task) => {
         if (task.id === id) {
