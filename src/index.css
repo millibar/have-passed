@@ -163,7 +163,7 @@ header button.undo svg {
 
 .task p span {
   color: #777;
-  font-size: 90%;
+  font-size: 86%;
 }
 
 /* EditDialog */
@@ -308,11 +308,11 @@ header button.undo svg {
 /* Card */
 .card {
   margin: 12px 10px;
-  padding: 10px 8px;
+  padding: 10px 8px 10px 6px;
   border-radius: 8px;
   box-shadow: 0 0 3px #aaa;
   display: grid;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: 1fr 44px;
   grid-template-areas: 'task button';
   background: #fff;
 }
@@ -324,7 +324,7 @@ header button.undo svg {
 .card button {
   grid-area: button;
   box-sizing: border-box;
-  width: 50px;
+  width: 44px;
   height: 50px;
 }
 
@@ -339,7 +339,7 @@ header button.undo svg {
 }
 
 .card button.done svg {
-  padding: 4px;
+  padding: 2px;
   filter: drop-shadow(1px 1px 1px #666);
 }
 
