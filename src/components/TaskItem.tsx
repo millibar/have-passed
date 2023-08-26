@@ -29,15 +29,25 @@ export const TaskItem = (props: Props) => {
     <div className="task">
       {props.handleOnTitleChange ? (
         <h1>
-          <input
-            ref={inputRef}
-            type="text"
-            value={props.title}
-            placeholder="新しいタスク"
-            onChange={(e) =>
-              props.handleOnTitleChange ? props.handleOnTitleChange(e) : false
-            }
-          />
+          {props.title ? (
+            <input
+              type="text"
+              value={props.title}
+              onChange={(e) =>
+                props.handleOnTitleChange ? props.handleOnTitleChange(e) : false
+              }
+            />
+          ) : (
+            <input
+              ref={inputRef}
+              type="text"
+              value={''}
+              placeholder="名前を入力してください"
+              onChange={(e) =>
+                props.handleOnTitleChange ? props.handleOnTitleChange(e) : false
+              }
+            />
+          )}
         </h1>
       ) : (
         <h1>{props.title}</h1>
