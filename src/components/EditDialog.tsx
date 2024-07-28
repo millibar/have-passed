@@ -28,6 +28,7 @@ const iconNames = [
   'study',
   'walking',
   'hand',
+  'toothbrush',
   'dental',
   'hospital',
   'movie',
