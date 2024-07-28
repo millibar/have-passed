@@ -35,6 +35,7 @@ const iconNames = [
   'medicine',
   'pet',
   'heart',
+  'babyBottle',
   'cycling',
   'smoking',
   'beer',
